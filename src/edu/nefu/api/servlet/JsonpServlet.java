@@ -31,7 +31,6 @@ public class JsonpServlet extends HttpServlet {
 		request.setCharacterEncoding("UTF-8");
 		response.setCharacterEncoding("UTF-8");
 		String url=request.getParameter("url");
-		System.out.println(url);
 		String callback=request.getParameter("callback"); 
 		response.getWriter().println(callback+"("+HttpRequestUtil.httpRequest(url)+")");
 	}
