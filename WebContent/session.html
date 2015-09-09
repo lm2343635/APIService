@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
+        <title>Session Test</title>
+        <link href="static/css/bootstrap.min.css" rel="stylesheet">
+        <link href="static/css/bootstrap.enhance.css" rel="stylesheet">
+        <link href="static/css/font-awesome.min.css" rel="stylesheet">
+        <style>
+        	#save, #get, #test {
+        		width: 100%;
+        		margin-top: 10px;
+        	}
+        </style>
+        <!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
+        <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
+        <!--[if lt IE 9]>
+          <script src="http://cdn.bootcss.com/html5shiv/3.7.2/html5shiv.min.js"></script>
+          <script src="http://cdn.bootcss.com/respond.js/1.4.2/respond.min.js"></script>
+        <![endif]-->
+        <!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
+        <script src="static/js/jquery.min.js"></script>
+        <!-- Include all compiled plugins (below), or include individual files as needed -->
+        <script src="static/js/bootstrap.min.js"></script>
+        <script>
+        	$(document).ready(function() {
+				$("#save").click(function(){
+					var value=$("#value").val();
+					$.get("SessionTestServlet?task=setValue&value="+value, function(data){
+						if(data=="true")
+							alert("Set value: "+value);
+					})
+				});
+				
+				$("#get").click(function(){
+					$.get("SessionTestServlet?task=getValue", function(data){
+							alert("Get value: "+data);
+					})
+				});
+			});
+        </script>
+    </head>
+    <body>
+    	<div class="container">
+            <div class="alert alert-success">Session Test</div>
+           	<div class="row">
+				<div class="col-xs-12">
+				     <div class="input-group">
+				         <span class="input-group-addon form-icon"><i class="fa fa-font fa-lg"></i></span>
+				         <input id="value" type="text" class="form-control" placeholder="Value">
+				     </div>
+				 </div>
+				 <div class="col-xs-12 col-md-4">
+				     <button id="save" class="btn btn-success">Save</button>
+				</div>
+				<div class="col-xs-12 col-md-4">
+				     <button id="get" class="btn btn-danger">Get</button>
+				</div>
+				<div class="col-xs-12 col-md-4">
+				     <a id="test" href="sessionResult.html" class="btn btn-info">Test</a>
+				</div>
+           	</div>
+        </div>
+    </body>
+</html>

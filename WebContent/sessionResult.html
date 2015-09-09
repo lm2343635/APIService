@@ -4,7 +4,7 @@
         <meta charset="utf-8">
         <meta http-equiv="X-UA-Compatible" content="IE=edge">
         <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
-        <title>API Service</title>
+        <title>Session Test Result</title>
         <link href="static/css/bootstrap.min.css" rel="stylesheet">
         <link href="static/css/bootstrap.enhance.css" rel="stylesheet">
         <link href="static/css/font-awesome.min.css" rel="stylesheet">
@@ -18,16 +18,32 @@
         <script src="static/js/jquery.min.js"></script>
         <!-- Include all compiled plugins (below), or include individual files as needed -->
         <script src="static/js/bootstrap.min.js"></script>
+        <script>
+        	$(document).ready(function() {
+        		$.get("SessionTestServlet?task=setValue&value=test", function(data){
+        			$.get("SessionTestServlet?task=getValue", function(data){
+    					$("#data").text(data);
+    					if(data=="null")
+    						$("#fail").show();
+    					else
+    						$("#success").show();
+    				})
+				})
+				
+			});
+        </script>
+        <style>
+        	#success, #fail {
+        		display: none;
+        	}
+        </style>
     </head>
     <body>
     	<div class="container">
-            <div class="alert alert-success">API Service</div>
-			<div class="list-group">
-                <a href="mail.html" class="list-group-item">Mail Service</a>
-				<a href="urlencode.html" class="list-group-item">URL Encode Service</a>
-				<a href="jsonp.html" class="list-group-item">JSONP Service</a>
-				<a href="session.html" class="list-group-item">Session Test Service</a>
-            </div>
+            <div class="alert alert-success">Session Test Result</div>
+            <div id="data" class="alert alert-default" role="alert"></div>
+           	<div id="success" class="alert alert-info" role="alert">Your browser don't have session problem.</div>
+           	<div id="fail" class="alert alert-danger" role="alert">Your browser has session problem.</div>
         </div>
     </body>
 </html>
