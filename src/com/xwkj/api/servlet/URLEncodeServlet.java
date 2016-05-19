@@ -1,4 +1,4 @@
-package edu.nefu.api.servlet;
+package com.xwkj.api.servlet;
 
 import java.io.IOException;
 import java.net.URLEncoder;

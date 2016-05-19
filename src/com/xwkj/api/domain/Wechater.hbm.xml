@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE hibernate-mapping PUBLIC 
+	"-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+	"http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+<hibernate-mapping package="com.xwkj.api.domain">
+	<class name="Wechater" table="wechater">
+		<id name="wid" type="string">
+			<generator class="uuid"/>
+		</id>
+		<property name="openid" type="string" not-null="true" unique="true"/>
+		<property name="nickname" type="string"/>
+		<property name="sex" type="integer"/>
+		<property name="language" type="string"/>
+		<property name="city" type="string"/>
+		<property name="province" type="string"/>
+		<property name="country" type="string"/>
+		<property name="headimgurl" type="string"/>
+		<property name="subscribe_time" type="integer"/>
+		<property name="remark" type="string"/>
+		<property name="groupid" type="integer"/>
+	</class>
+</hibernate-mapping>

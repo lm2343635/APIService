@@ -1,4 +1,4 @@
-package edu.nefu.api.service;
+package com.xwkj.common.util;
 
 import java.util.ArrayList;
 import java.util.Date;
