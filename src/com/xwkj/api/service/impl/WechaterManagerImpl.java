@@ -59,7 +59,6 @@ public class WechaterManagerImpl extends ManagerTemplate implements WechaterMana
 				wechaterDao.save(wechater);
 			} else {
 				wechater.update(userInfo);
-				System.out.println(wechater.getNickname());
 				wechaterDao.update(wechater);
 			}
 		}
