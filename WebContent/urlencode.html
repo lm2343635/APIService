@@ -18,23 +18,28 @@
         <script src="static/js/jquery.min.js"></script>
         <!-- Include all compiled plugins (below), or include individual files as needed -->
         <script src="static/js/bootstrap.min.js"></script>
+		<script src="dwr/engine.js"></script>
+		<script src="dwr/interface/URLManager.js"></script>
+        <script>
+            $(document).ready(function() {
+                $("#submit").click(function() {
+                	URLManager.encode("utf-8", $("#url").val(), function(encode) {
+                		$("#encode").text(encode);
+                	});
+                });
+            });
+        </script>
     </head>
     <body>
-    	<div class="container">
+        <div class="container">
             <div class="alert alert-success">URL Encode</div>
-            <form action="URLEncodeServlet?task=encode&enc=utf-8" method="post">
-            	<div class="row">
-            	    <div class="col-xs-12 form-group">
-                        <div class="input-group">
-                            <span class="input-group-addon form-icon"><i class="fa fa-font fa-lg"></i></span>
-                            <input name="url" type="text" class="form-control" placeholder="URL">
-                        </div>
-                    </div>
-                    <div class="col-xs-12 form-group">
-                        <button type="submit" class="btn btn-success" style="width: 100%">submit</button>
-                    </div>
-            	</div>
-            </form> 
+            <div class="input-group">
+                <span class="input-group-addon form-icon"><i class="fa fa-link fa-lg"></i></span>
+                <input id="url" type="text" class="form-control" placeholder="URL">
+            </div>
+            <hr>
+            <div id="encode" class="alert alert-success"></div>
+            <button id="submit" class="btn btn-block btn-lg btn-success">submit</button>
         </div>
     </body>
 </html>

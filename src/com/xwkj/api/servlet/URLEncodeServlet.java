@@ -9,42 +9,29 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
-/**
- * Servlet implementation class URLEncodeServlet
- */
 @WebServlet("/URLEncodeServlet")
 public class URLEncodeServlet extends HttpServlet {
-	private static final long serialVersionUID = 1L;
+
+	private static final long serialVersionUID = 2909439518223709596L;
 	private String task;
        
-    /**
-     * @see HttpServlet#HttpServlet()
-     */
     public URLEncodeServlet() {
         super();
-        // TODO Auto-generated constructor stub
     }
 
-	/**
-	 * @see HttpServlet#doGet(HttpServletRequest request, HttpServletResponse response)
-	 */
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		// TODO Auto-generated method stub
-		response.getWriter().append("Served at: ").append(request.getContextPath());
+		doPost(request, response);
 	}
 
-	/**
-	 * @see HttpServlet#doPost(HttpServletRequest request, HttpServletResponse response)
-	 */
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		task=request.getParameter("task");
-		String enc=request.getParameter("enc");
+		task = request.getParameter("task");
+		String enc = request.getParameter("enc");
 		request.setCharacterEncoding(enc);
 		response.setCharacterEncoding(enc);
 		switch (task) {
 		case "encode":
-			String url=request.getParameter("url");
-			String encode=URLEncoder.encode(url, enc);
+			String url = request.getParameter("url");
+			String encode = URLEncoder.encode(url, enc);
 			response.getWriter().print(encode);
 			break;
 		case "decode":

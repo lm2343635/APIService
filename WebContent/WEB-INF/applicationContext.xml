@@ -35,5 +35,6 @@
 	
 	<!-- 定义业务逻辑组件 -->
 	<bean id="wechaterManager" class="com.xwkj.api.service.impl.WechaterManagerImpl" parent="managerTemplate"/>
+	<bean id="urlManager" class="com.xwkj.api.service.impl.URLManagerImpl"/>
 	
 </beans>

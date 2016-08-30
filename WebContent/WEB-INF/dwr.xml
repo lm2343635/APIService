@@ -7,8 +7,11 @@
 		<create creator="spring" javascript="WechaterManager"> 
 			<param name="beanName" value="wechaterManager"/>
 		</create>
+		<create creator="spring" javascript="URLManager"> 
+			<param name="beanName" value="urlManager"/>
+		</create>
+		
 		<!-- 定义使用Bean转换器处理如下Java类 -->
 		<convert converter="bean" match="com.xwkj.api.domain.Wechater"/>
-
 	</allow>
 </dwr>
